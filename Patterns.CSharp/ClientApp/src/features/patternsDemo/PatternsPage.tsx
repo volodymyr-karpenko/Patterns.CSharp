@@ -5,7 +5,6 @@ import { DropdownSelector } from "../../common/DropdownSelector";
 import { PatternsOutput } from "./PatternsOutput";
 import { patternsSlice } from "./patternsSlice";
 import { IPatternsProps } from "./IPatternsProps";
-import { IPatternsState } from "./IPatternsState";
 import { PatternsData } from "./PatternsData";
 import { store } from "../../app/store";
 import { PatternsService } from "./PatternsService";
@@ -15,6 +14,7 @@ export class PatternsPage extends React.PureComponent<IPatternsProps> {
     constructor(props: IPatternsProps) {
         super(props);
         this.props = props;
+        this.PresentOutput = this.PresentOutput.bind(this);
     }
 
     public props: IPatternsProps;
@@ -22,6 +22,21 @@ export class PatternsPage extends React.PureComponent<IPatternsProps> {
     private PatternsData: PatternsData = new PatternsData();
 
     private PatternsService: PatternsService = new PatternsService();    
+
+    private PresentOutput(option: string): void {
+        this.PatternsService.GetPatternOutputAsync(option)
+            .then(
+                res => {
+                    this.props.presentOutput(res);
+                }
+            )
+            .catch(
+                err => {
+                    console.log(`API Request Error: ${err}`);
+                    alert(`API Request Error: ${err}`);
+                }
+            )
+    }
 
     render(): JSX.Element {
 
@@ -38,28 +53,19 @@ export class PatternsPage extends React.PureComponent<IPatternsProps> {
                         <DropdownSelector
                             title={this.PatternsData.CreationalPatternsTitle}
                             options={this.PatternsData.CreationalPatterns}
-                            onOptionClick={async (option) => {
-                                const output: IPatternsState = await this.PatternsService.GetPatternOutputAsync(option);
-                                this.props.presentOutput(output);
-                            }} />
+                            onOptionClick={option => this.PresentOutput(option)} />
                     </Col>
                     <Col className="col-auto mt-5">
                         <DropdownSelector
                             title={this.PatternsData.StructuralPatternsTitle}
                             options={this.PatternsData.StructuralPatterns}
-                            onOptionClick={async (option) => {
-                                const output: IPatternsState = await this.PatternsService.GetPatternOutputAsync(option);
-                                this.props.presentOutput(output);
-                            }} />
+                            onOptionClick={option => this.PresentOutput(option)} />
                     </Col>
                     <Col className="col-auto mt-5">
                         <DropdownSelector
                             title={this.PatternsData.BehavioralPatternsTitle}
                             options={this.PatternsData.BehavioralPatterns}
-                            onOptionClick={async (option) => {
-                                const output: IPatternsState = await this.PatternsService.GetPatternOutputAsync(option);
-                                this.props.presentOutput(output);
-                            }} />
+                            onOptionClick={option => this.PresentOutput(option)} />
                     </Col>
                 </Row>
             </React.Fragment>

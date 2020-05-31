@@ -13,13 +13,7 @@ export class PatternsService {
             body: JSON.stringify({ patternType: id })
         });
 
-        let responseText: string = "";
-        if (response.ok) {
-            responseText = await response.text();
-        }
-        else {
-            console.log("API Request Error " + response.status);
-        }
+        let responseText: string = await response.text();        
 
         newState.SelectedPatternOutput = responseText;
 
