@@ -1,6 +1,6 @@
 # Patterns.CSharp
-Sample cross-platform app that is built with ASP.NET Core API and React-with-Redux project template from Visual Studio 
-to demonstrate 23 GoF design patterns via C# using simplistic samples.
+Sample React with Redux with TypeScript cross-platform single-page app that is built with ASP.NET Core API and React-with-Redux project template from Visual Studio 
+to demonstrate 23 GoF design patterns via C# programming language using simplistic samples.
 
 ### Prerequisites 
 In order to run the application, you need Visual Studio to be up and running on your computer (both PC and MAC are eligible).
