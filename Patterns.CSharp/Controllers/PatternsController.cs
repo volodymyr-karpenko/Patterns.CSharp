@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Patterns.CSharp.Models;
-using Patterns.CSharp.Patterns;
 using System.Threading.Tasks;
 
 namespace Patterns.CSharp.Controllers
@@ -26,7 +25,7 @@ namespace Patterns.CSharp.Controllers
                 patternType = body.patternType
             };
 
-            PatternUseCase useCase = null;
+            Patterns.PatternUseCase useCase = null;
 
             await Task.Factory.StartNew(() => {               
 

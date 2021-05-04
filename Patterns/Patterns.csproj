@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AbstractFactory\Diagram\AbstractFactory.svg.crswap" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Adapter\Diagram\" />
+    <Folder Include="Bridge\Diagram\" />
+    <Folder Include="Builder\Diagram\" />
+    <Folder Include="ChainOfResponsibility\Diagram\" />
+    <Folder Include="Command\Diagram\" />
+    <Folder Include="Composite\Diagram\" />
+    <Folder Include="Decorator\Diagram\" />
+    <Folder Include="Facade\Diagram\" />
+    <Folder Include="FactoryMethod\Diagram\" />
+    <Folder Include="Flyweight\Diagram\" />
+    <Folder Include="Interpreter\Diagram\" />
+    <Folder Include="Iterator\Diagram\" />
+    <Folder Include="Mediator\Diagram\" />
+    <Folder Include="Memento\Diagram\" />
+    <Folder Include="Observer\Diagram\" />
+    <Folder Include="Prototype\Diagram\" />
+    <Folder Include="Proxy\Diagram\" />
+    <Folder Include="Singleton\Diagram\" />
+    <Folder Include="State\Diagram\" />
+    <Folder Include="Strategy\Diagram\" />
+    <Folder Include="TemplateMethod\Diagram\" />
+    <Folder Include="Visitor\Diagram\" />
+  </ItemGroup>
+
+</Project>
